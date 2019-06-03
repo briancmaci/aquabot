@@ -27,7 +27,7 @@ def send_fact(fact_id):
     message_text = slack_message_text
     message_attachments = [fact.slack_serialize(get_color(fact_id), additional_facts_list, tag_buttons_list)]
     slack_bot_token = os.environ["SLACK_API_TOKEN"]
-    slack_channel = "#andrew-brian"
+    slack_channel = os.environ["SLACK_TEST_CHANNEL"]
     slack_client = SlackClient(slack_bot_token)
 
     response = jsonify(message_attachments)
